@@ -1,0 +1,38 @@
+class Solution:
+    def isPalindrome(self, x: int)  -> bool:
+        temp = x
+        if x < 0:
+            return False
+        if x == 0:
+            return True
+        res = 0
+        while x > 0:
+            res = res * 10 + x % 10
+            x //= 10
+        return temp == res
+
+obj = Solution()
+x = obj.isPalindrome(121)
+y = obj.isPalindrome(-121)
+z = obj.isPalindrome(0)
+print(f"{x}\n{y}\n{z}")
+
+
+
+# Alternative approach
+class Solution:
+    def isPalindrome(self, x: int)  -> bool:
+        x = str(x)
+        rev_str = ""
+
+        for char in range(len(x)-1,-1,-1):
+            rev_str += x[char]
+        return x == rev_str
+
+
+
+
+obj = Solution()
+x = obj.isPalindrome(0)
+print(x)
+
