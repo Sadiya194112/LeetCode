@@ -1,0 +1,27 @@
+class Solution:
+    def isValid(self, s):
+        dic = {')':'(', '}':'{', ']':'['}
+        stack = []
+
+        for char in s:
+            if char in dic.values():    # If it's an opening bracket
+                stack.append(char)
+            elif char in dic:   # If it's a closing bracket
+                if not stack or stack.pop() != dic[char]:
+                    return False
+                
+        return len(stack) == 0
+    
+
+s = "{()}[]"
+st = "{)"
+ss = "}"
+obj = Solution()
+print(obj.isValid(s))
+print(obj.isValid(st))
+print(obj.isValid(ss))
+
+
+
+
+
