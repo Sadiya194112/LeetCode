@@ -1,0 +1,15 @@
+from typing import List
+
+class Solution:
+    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+        n = len(arr)-1
+
+        for i in range(1, n):
+            if arr[i-1]%2 !=0 and arr[i]%2 != 0 and arr[i+1]%2 != 0:
+                return True
+        return False
+        
+arr = [1, 1, 1]
+obj = Solution()
+res = obj.threeConsecutiveOdds(arr)
+print(res)
