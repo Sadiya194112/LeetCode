@@ -1,0 +1,11 @@
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        index = haystack.find(needle)
+        return index
+    
+
+haystack = "sadbutsad"
+needle = "sadc"
+obj = Solution()
+index = obj.strStr(haystack, needle)
+print(index)
