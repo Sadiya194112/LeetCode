@@ -1,0 +1,11 @@
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        st = s.strip().split(' ')
+
+        return len(st[-1])
+
+
+
+s = "   fly me   to   the moon  "
+obj = Solution()
+print(obj.lengthOfLastWord(s))
