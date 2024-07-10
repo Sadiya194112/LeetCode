@@ -1,0 +1,14 @@
+from typing import List
+
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        maxm = -1e9
+        cur = 0
+        for num in nums:
+            cur = max(num, cur+num)
+            maxm = max(maxm, cur)
+        return maxm
+    
+nums = [-5,-4,-1,-7,-8]
+obj = Solution()
+print(obj.maxSubArray(nums))
