@@ -1,0 +1,16 @@
+from typing import List
+
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[2], n: int) -> None:
+        i = m 
+        for j in range(n):
+            nums1[i] = nums2[j]
+            i += 1
+        nums1.sort()
+        print(nums1)
+
+nums1 = [0]
+nums2 = [1]
+m, n = 0, 1
+obj = Solution()
+obj.merge(nums1, m, nums2, n)
