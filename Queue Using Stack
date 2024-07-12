@@ -1,0 +1,40 @@
+
+class MyQueue:
+
+    def __init__(self):
+        self.s1 = []
+        self.s2 = []
+
+    def push(self, x: int) -> None:
+        self.s1.append(x)
+
+    def pop(self) -> int:
+        if not self.s2:
+            while self.s1:
+                self.s2.append(self.s1.pop())
+        popped_ele = self.s2.pop()
+        return popped_ele
+
+    def peek(self) -> int:
+        if not self.s2:
+            while self.s1:
+                self.s2.append(self.s1.pop())
+            return self.s2[-1]
+        return self.s2[-1]
+
+    def empty(self) -> bool:
+        return len(self.s1) == 0 and len(self.s2) == 0
+    
+    def isFull(self):
+        #Assuming queue dynamic.
+        return False
+
+obj = MyQueue()
+obj.push(1)
+obj.push(2)
+obj.push(3)
+print(obj.pop())
+obj.push(4)
+obj.push(5)
+print(obj.pop())
+print(obj.peek())
