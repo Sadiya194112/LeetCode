@@ -1,0 +1,48 @@
+# 1. Insertion of new element will be done in q1.
+# 2. Pop element from q1 and push it to q2 one by one except the last one.
+# 3. Pop the element from q1(Last element)
+# 4. Now, push all element from q2 to q1. (Which is swapping in this case)
+
+from collections import deque
+
+class Stack:
+    def __init__(self):
+        self.q1 = deque()
+        self.q2 = deque()
+
+    def push(self, x):
+        self.q1.append(x)
+    def pop(self):
+        if not self.q1:
+            return None
+        while len(self.q1) > 1:
+            self.q2.append(self.q1.popleft())
+
+        popped_ele = self.q1.popleft()
+        
+        #Swap the value of the q2 to q1 to take it to initial stage
+        self.q1, self.q2 = self.q2, self.q1
+        return popped_ele
+    
+    def peek(self):
+        if not self.q1:
+            return None
+        return self.q1[-1]
+    def isEmpty(self):
+        if not self.q1:
+            return True
+        return False
+    
+    def isFull(self):
+        #Assuming stack dynamic.
+        return False
+
+obj = Stack()
+obj.push(1)
+obj.push(2)
+obj.push(3)
+print(obj.pop())
+obj.push(4)
+obj.push(5)
+print(obj.pop())
+print(obj.peek())
