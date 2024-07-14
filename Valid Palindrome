@@ -1,0 +1,15 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        st = s.lower()
+        st = ''.join(char for char in st if char.islower() or char.isdigit())
+        n = len(st)
+        x = n//2
+        
+        for i in range(x):
+            if st[i] != st[n-i-1]:
+                return False
+        return True
+
+s = "0P"
+obj = Solution()
+print(obj.isPalindrome(s))
